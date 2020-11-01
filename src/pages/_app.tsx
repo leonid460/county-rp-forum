@@ -2,6 +2,7 @@ import React from 'react';
 import { Global, css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import Head from 'next/head';
+import { AppProps } from 'next/app';
 
 const GlobalStyles = () => (
   <Global
@@ -37,7 +38,7 @@ const GlobalStyles = () => (
   />
 );
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={{ ...pageProps.theme }}>
       <GlobalStyles />
