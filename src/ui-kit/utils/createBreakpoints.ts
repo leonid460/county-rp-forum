@@ -4,7 +4,7 @@ export interface IRawBreakPoints {
   l: number;
 }
 
-export type TBreakpointsKeyDefault = 's' | 'm' | 'l';
+export type TBreakpointsKeyDefault = 's' | 'm' | 'l' | 'xl';
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface TBreakpointsKeyOverrides {}
 export type TBreakpointsKey = TBreakpointsKeyDefault & TBreakpointsKeyOverrides;
@@ -30,9 +30,9 @@ export function createBreakpoints(rawBreakpoints: IRawBreakPoints): IBreakpoints
 }
 
 function makeMinBreakpointItem(rawBreakpoint: number) {
-  return `@media (min-width: ${rawBreakpoint})`;
+  return `@media (min-width: ${rawBreakpoint}px)`;
 }
 
 function makeMaxBreakpointItem(rawBreakpoint: number) {
-  return `@media (max-width: ${rawBreakpoint})`;
+  return `@media (max-width: ${rawBreakpoint}px)`;
 }

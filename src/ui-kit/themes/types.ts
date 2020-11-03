@@ -1,4 +1,4 @@
-import { IBreakpoints } from 'utils/createBreakpoints';
+import { IBreakpoints } from 'ui-kit/utils/createBreakpoints';
 
 interface IColors {
   primary: string;

@@ -1,10 +1,10 @@
-import { createBreakpoints } from 'utils/createBreakpoints';
-import { breakpoints } from './breakpoints';
-import { Colors } from 'ui-kit/styles/global';
-import { ITheme } from 'types/theme';
+import { createBreakpoints } from 'ui-kit/utils/createBreakpoints';
+import { Breakpoints } from 'ui-kit/constants/global';
+import { Colors } from 'ui-kit/constants/global';
+import { ITheme } from 'ui-kit/themes/types';
 
 export const theme: ITheme = {
-  breakpoints: createBreakpoints(breakpoints),
+  breakpoints: createBreakpoints(Breakpoints),
   colors: {
     primary: Colors.Cobalt,
     primaryVariant: Colors.Azure,

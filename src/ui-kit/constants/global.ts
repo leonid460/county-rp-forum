@@ -20,3 +20,17 @@ export enum Colors {
   Platinum = '#EDF1F4',
   White = '#FFFFFF'
 }
+
+export const Margins = {
+  s: 16,
+  m: 20,
+  l: 191,
+  xl: 312
+};
+
+export const Breakpoints = {
+  s: 320,
+  m: 580,
+  l: 1280,
+  xl: 1600
+};
