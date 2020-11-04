@@ -1,4 +1,4 @@
 import styled, { CreateStyled } from '@emotion/styled';
-import { ITheme } from 'ui-kit/themes/types';
+import { ITheme } from 'themes/types';
 
 export default styled as CreateStyled<ITheme>;

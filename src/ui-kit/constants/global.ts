@@ -11,12 +11,18 @@ export enum Gaps {
 
 export enum Colors {
   Vantablack = '#000000',
+  CodGray = '#131313',
+  MineShaft = '#202020',
+  Nero = '#2C2C2C',
   UpsdellRed = '#B00020',
+  Heliotrope = '#BB85FC',
+  Deluge = '#75579F',
   Cobalt = '#0653C0',
   Azure = '#044096',
   Pigeon = '#717E96',
   WildBlueYonder = '#A0B2D1',
   Lavender = '#E6EBEE',
+  Alto = '#DDDDDD',
   Platinum = '#EDF1F4',
   White = '#FFFFFF'
 }

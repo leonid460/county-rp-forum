@@ -1,4 +1,4 @@
-import { ITheme } from 'ui-kit/themes/types';
+import { ITheme } from 'themes/types';
 import { useTheme } from 'emotion-theming';
 import { useEffect, useState } from 'react';
 

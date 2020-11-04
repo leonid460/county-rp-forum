@@ -64,4 +64,5 @@ export const SearchField = styled.input`
   border-radius: 18px;
   outline: none;
   background: ${({ theme }) => theme.colors.surface};
+  color: ${({ theme }) => theme.colors.onSurface};
 `;
