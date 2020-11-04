@@ -30,9 +30,9 @@ export function createBreakpoints(rawBreakpoints: IRawBreakPoints): IBreakpoints
 }
 
 function makeMinBreakpointItem(rawBreakpoint: number) {
-  return `@media (min-width: ${rawBreakpoint}px)`;
+  return `@media screen and (min-width: ${rawBreakpoint}px)`;
 }
 
 function makeMaxBreakpointItem(rawBreakpoint: number) {
-  return `@media (max-width: ${rawBreakpoint}px)`;
+  return `@media screen and (max-width: ${rawBreakpoint}px)`;
 }
