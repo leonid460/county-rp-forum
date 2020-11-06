@@ -63,7 +63,7 @@ const LayoutWithTheme = ({ Component, pageProps }: AppProps) => {
 
 const MyApp = ({ Component, pageProps, ...appProps }: AppProps) => {
   const { initialReduxState, ...restPageProps } = pageProps;
-  const store = useStore(initialReduxState);
+  const store = useStore({ ...initialReduxState, theme: 'dark' });
 
   return (
     <>

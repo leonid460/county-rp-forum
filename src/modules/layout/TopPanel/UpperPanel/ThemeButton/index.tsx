@@ -8,13 +8,13 @@ export const ThemeButton = () => {
   const dispatch = useDispatch();
   const themeName = useSelector(selectCurrentThemeName);
 
-  const onClick = () => {
+  const onChange = () => {
     dispatch(toggle());
   };
 
   return (
     <Styled.Wrapper>
-      <Styled.Checkbox onClick={onClick} value={themeName !== 'light'} />
+      <Styled.Checkbox checked={themeName !== 'light'} onChange={onChange} />
       <Styled.Slider />
     </Styled.Wrapper>
   );
