@@ -32,7 +32,7 @@ export const NavItem = styled(Link)`
   opacity: 0.7;
   transition: 0.2s ease background-color;
 
-  &:first-child {
+  &:first-of-type {
     padding-left: 0;
   }
 

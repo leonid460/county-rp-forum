@@ -27,6 +27,7 @@ export const Logo = styled.div`
 export const AuthButtonsContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   height: 100%;
   padding: 16px 0;
 `;
