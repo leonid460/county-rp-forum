@@ -2,17 +2,16 @@ import styled from 'utils/styled';
 import { SecondaryButton as ProtoSecondaryButton } from 'ui-kit/atoms/Buttons/SecondaryButton';
 
 export const Container = styled.div`
-  position: relative;
   height: 100%;
   display: flex;
   align-items: center;
 `;
 
 export const MobileMenuWrapper = styled.div`
-  position: fixed;
-  top: 60px;
+  position: absolute;
+  top: 100%;
   right: 0;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   justify-content: center;
   width: 100vw;

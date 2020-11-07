@@ -2,6 +2,7 @@ import styled from 'utils/styled';
 import { Box } from 'ui-kit/atoms/Box';
 
 export const Container = styled.div`
+  position: relative;
   width: 100%;
   height: 66px;
   background: ${({ theme }) => theme.colors.surface};

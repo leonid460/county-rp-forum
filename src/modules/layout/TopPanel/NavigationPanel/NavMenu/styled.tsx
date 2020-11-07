@@ -29,6 +29,7 @@ export const NavItem = styled(Link)`
     height: 100%;
     width: initial;
     padding: 0 18px;
+    border-top: none;
   }
 
   &:first-of-type {
