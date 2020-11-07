@@ -21,18 +21,6 @@ export const MobileMenuWrapper = styled.div`
   animation: growOut 0.3s ease-in-out forwards;
   transform-origin: top center;
   user-select: none;
-
-  @keyframes growOut {
-    0% {
-      transform: scaleY(0);
-    }
-    80% {
-      transform: scaleY(1.1);
-    }
-    100% {
-      transform: scaleY(1);
-    }
-  }
 `;
 
 export const AuthButtonsContainer = styled.div`

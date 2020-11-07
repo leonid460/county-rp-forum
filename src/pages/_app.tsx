@@ -44,6 +44,18 @@ const GlobalStyles = ({ theme }: { theme: ITheme }) => (
         max-width: 100%;
         display: block;
       }
+
+      @keyframes growOut {
+        0% {
+          transform: scaleY(0);
+        }
+        80% {
+          transform: scaleY(1.1);
+        }
+        100% {
+          transform: scaleY(1);
+        }
+      }
     `}
   />
 );
