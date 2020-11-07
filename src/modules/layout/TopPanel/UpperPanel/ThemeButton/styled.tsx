@@ -11,6 +11,7 @@ export const Wrapper = styled.label`
   border: 0.12rem solid ${({ theme }) => theme.colors.border};
   border-radius: 1rem;
   background: ${({ theme }) => theme.colors.background};
+  margin-right: 15px;
 `;
 
 export const Slider = styled.span`

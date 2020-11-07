@@ -1,6 +1,5 @@
 import styled from 'utils/styled';
 import { Box } from 'ui-kit/atoms/Box';
-import { SecondaryButton as ProtoSecondaryButton } from 'ui-kit/atoms/Buttons/SecondaryButton';
 
 export const Container = styled.div`
   width: 100%;
@@ -24,14 +23,9 @@ export const Logo = styled.div`
   color: ${({ theme }) => theme.colors.onSurface};
 `;
 
-export const AuthButtonsContainer = styled.div`
+export const UserControlWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   height: 100%;
-  padding: 16px 0;
-`;
-
-export const SecondaryButton = styled(ProtoSecondaryButton)`
-  margin-right: 15px;
 `;
