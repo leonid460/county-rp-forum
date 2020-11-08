@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Styled from './styled';
-import { ThemeButton } from 'modules/layout/TopPanel/UpperPanel/ThemeButton';
+import { ThemeButton } from '@/modules/layout/TopPanel/UpperPanel/ThemeButton';
 import { AuthMenu } from './AuthMenu';
 
 export const UpperPanel = () => {

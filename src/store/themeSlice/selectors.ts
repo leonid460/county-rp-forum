@@ -1,5 +1,5 @@
 import { TCurrentThemeName } from './types';
-import { theme, darkTheme } from 'themes/theme';
+import { theme, darkTheme } from '@/themes/theme';
 
 export const selectCurrentThemeName = (state: { theme: TCurrentThemeName }) => state.theme;
 

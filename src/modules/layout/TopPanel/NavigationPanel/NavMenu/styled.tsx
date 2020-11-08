@@ -1,5 +1,5 @@
-import styled from 'utils/styled';
-import { Link } from 'ui-kit/atoms/Link';
+import styled from '@/utils/styled';
+import { Link } from '@/ui-kit/atoms/Link';
 
 export const NavItemsWrapper = styled.div`
   display: flex;

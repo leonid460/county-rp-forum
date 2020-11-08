@@ -1,5 +1,5 @@
-import styled from 'utils/styled';
-import { Margins } from 'ui-kit/constants/global';
+import styled from '@/utils/styled';
+import { Margins } from '@/ui-kit/constants/global';
 
 export const Box = styled.div`
   width: calc(100% - ${Margins.s * 2}px);

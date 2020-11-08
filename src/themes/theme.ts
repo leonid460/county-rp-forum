@@ -1,7 +1,7 @@
-import { createBreakpoints } from 'utils/createBreakpoints';
-import { Breakpoints } from 'ui-kit/constants/global';
-import { Colors } from 'ui-kit/constants/global';
-import { ITheme } from 'themes/types';
+import { createBreakpoints } from '@/utils/createBreakpoints';
+import { Breakpoints } from '@/ui-kit/constants/global';
+import { Colors } from '@/ui-kit/constants/global';
+import { ITheme } from '@/themes/types';
 
 export const theme: ITheme = {
   breakpoints: createBreakpoints(Breakpoints),

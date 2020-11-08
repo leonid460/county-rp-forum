@@ -1,5 +1,5 @@
-import styled from 'utils/styled';
-import { SecondaryButton as ProtoSecondaryButton } from 'ui-kit/atoms/Buttons/SecondaryButton';
+import styled from '@/utils/styled';
+import { SecondaryButton as ProtoSecondaryButton } from '@/ui-kit/atoms/Buttons/SecondaryButton';
 
 export const Container = styled.div`
   height: 100%;

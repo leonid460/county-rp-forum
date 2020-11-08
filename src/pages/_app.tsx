@@ -3,11 +3,11 @@ import { Global, css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
-import { Layout } from 'modules/layout/Layout';
+import { Layout } from '@/modules/layout/Layout';
 import { Provider, useSelector } from 'react-redux';
-import { useStore } from 'store';
-import { selectCurrentTheme } from 'store/themeSlice/selectors';
-import { ITheme } from 'themes/types';
+import { useStore } from '@/store';
+import { selectCurrentTheme } from '@/store/themeSlice/selectors';
+import { ITheme } from '@/themes/types';
 
 const fontUrl =
   // eslint-disable-next-line max-len

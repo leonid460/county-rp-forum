@@ -1,4 +1,4 @@
-import styled from 'utils/styled';
+import styled from '@/utils/styled';
 
 export const SecondaryButton = styled.button`
   padding: 10px 20px;

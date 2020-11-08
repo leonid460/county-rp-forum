@@ -1,5 +1,5 @@
-import styled from 'utils/styled';
-import { Box } from 'ui-kit/atoms/Box';
+import styled from '@/utils/styled';
+import { Box } from '@/ui-kit/atoms/Box';
 
 export const Container = styled.div`
   position: relative;

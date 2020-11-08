@@ -1,4 +1,4 @@
-import { useMediaQuery } from 'utils/useMediaQuery';
+import { useMediaQuery } from '@/utils/useMediaQuery';
 
 export function useDeviceType() {
   const isDesktop = useMediaQuery((theme) => theme.breakpoints.up('xl'));

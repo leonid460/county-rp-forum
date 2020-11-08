@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as Styled from './styled';
 import { MenuIcon } from './MenuIcon';
-import { useDeviceType } from 'utils/useDeviceType';
+import { useDeviceType } from '@/utils/useDeviceType';
 
 export const NavMenu = () => {
   const { isTablet, isMobile } = useDeviceType();

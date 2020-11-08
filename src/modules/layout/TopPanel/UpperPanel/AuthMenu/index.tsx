@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as Styled from './styled';
-import { PrimaryButton } from 'ui-kit/atoms/Buttons/PrimaryButton';
-import { useDeviceType } from 'utils/useDeviceType';
+import { PrimaryButton } from '@/ui-kit/atoms/Buttons/PrimaryButton';
+import { useDeviceType } from '@/utils/useDeviceType';
 import { OpenPanelButton } from './OpenPanelButton/';
 
 export const AuthMenu = () => {
