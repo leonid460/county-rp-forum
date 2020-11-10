@@ -1,5 +1,5 @@
-import React from 'react';
 import styled from '@/utils/styled';
+import React from 'react';
 
 export const Wrapper = styled.label`
   position: relative;

@@ -4,23 +4,30 @@ import { PrimaryButton } from '@/ui-kit/atoms/Buttons/PrimaryButton';
 import { useDeviceType } from '@/utils/useDeviceType';
 import { OpenPanelButton } from './OpenPanelButton/';
 
-export const AuthMenu = () => {
-  const { isMobile } = useDeviceType();
+const AuthButtons = () => (
+  <Styled.AuthButtonsContainer>
+    <Styled.SecondaryButton>Войти</Styled.SecondaryButton>
+    <PrimaryButton>Регистрация</PrimaryButton>
+  </Styled.AuthButtonsContainer>
+);
+
+const MobileAuthMenu = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
-  const renderButtons = () => (
-    <Styled.AuthButtonsContainer>
-      <Styled.SecondaryButton>Войти</Styled.SecondaryButton>
-      <PrimaryButton>Регистрация</PrimaryButton>
-    </Styled.AuthButtonsContainer>
-  );
-
-  const renderMobile = () => (
+  return (
     <Styled.Container>
       <OpenPanelButton isActive={menuIsOpen} onClick={() => setMenuIsOpen(!menuIsOpen)} />
-      {menuIsOpen && <Styled.MobileMenuWrapper>{renderButtons()}</Styled.MobileMenuWrapper>}
+      {menuIsOpen && (
+        <Styled.MobileMenuWrapper>
+          <AuthButtons />
+        </Styled.MobileMenuWrapper>
+      )}
     </Styled.Container>
   );
+};
 
-  return isMobile ? renderMobile() : renderButtons();
+export const AuthMenu = () => {
+  const { isMobile } = useDeviceType();
+
+  return isMobile ? <MobileAuthMenu /> : <AuthButtons />;
 };

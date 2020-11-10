@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Styled from './styled';
-import { ThemeButton } from '@/modules/layout/TopPanel/UpperPanel/ThemeButton';
+import { ThemeSwitchBlock } from '@/modules/layout/TopPanel/UpperPanel/ThemeSwitchBlock';
 import { AuthMenu } from './AuthMenu';
 
 export const UpperPanel = () => {
@@ -9,7 +9,7 @@ export const UpperPanel = () => {
       <Styled.ContentContainer>
         <Styled.Logo>County RP</Styled.Logo>
         <Styled.UserControlWrapper>
-          <ThemeButton />
+          <ThemeSwitchBlock />
           <AuthMenu />
         </Styled.UserControlWrapper>
       </Styled.ContentContainer>

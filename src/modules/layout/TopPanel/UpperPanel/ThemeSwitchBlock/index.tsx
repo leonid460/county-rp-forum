@@ -1,10 +1,10 @@
 import React from 'react';
-import * as Styled from './styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggle } from '@/store/themeSlice/actions';
 import { selectCurrentThemeName } from '@/store/themeSlice/selectors';
+import { ThemeSwitch } from './ThemeSwitch';
 
-export const ThemeButton = () => {
+export const ThemeSwitchBlock = () => {
   const dispatch = useDispatch();
   const themeName = useSelector(selectCurrentThemeName);
 
@@ -12,10 +12,5 @@ export const ThemeButton = () => {
     dispatch(toggle());
   };
 
-  return (
-    <Styled.Wrapper>
-      <Styled.Checkbox checked={themeName !== 'light'} onChange={onChange} />
-      <Styled.Slider />
-    </Styled.Wrapper>
-  );
+  return <ThemeSwitch checked={themeName !== 'light'} onChange={onChange} />;
 };
