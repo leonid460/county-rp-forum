@@ -1,3 +1,5 @@
+import { IRawBreakPoints } from '@/utils/createBreakpoints';
+
 export enum Gaps {
   Gap4 = '4px',
   Gap8 = '8px',
@@ -27,16 +29,24 @@ export enum Colors {
   White = '#FFFFFF'
 }
 
-export const Margins = {
+export const Margins: IRawBreakPoints = {
+  xs: 16,
   s: 16,
-  m: 20,
-  l: 191,
-  xl: 312
+  m: 50,
+  xm: 84,
+  xxm: 118,
+  l: 170,
+  xl: 250,
+  xxl: 410
 };
 
-export const Breakpoints = {
-  s: 320,
-  m: 580,
-  l: 1280,
-  xl: 1600
+export const Breakpoints: IRawBreakPoints = {
+  xs: 320,
+  s: 480,
+  m: 768,
+  xm: 1024,
+  xxm: 1280,
+  l: 1440,
+  xl: 1600,
+  xxl: 1920
 };

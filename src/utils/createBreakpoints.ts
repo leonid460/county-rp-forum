@@ -1,10 +1,15 @@
 export interface IRawBreakPoints {
+  xs: number;
   s: number;
   m: number;
+  xm: number;
+  xxm: number;
   l: number;
+  xl: number;
+  xxl: number;
 }
 
-export type TBreakpointsKeyDefault = 's' | 'm' | 'l' | 'xl';
+export type TBreakpointsKeyDefault = keyof IRawBreakPoints;
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface TBreakpointsKeyOverrides {}
 export type TBreakpointsKey = TBreakpointsKeyDefault & TBreakpointsKeyOverrides;
