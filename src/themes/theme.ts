@@ -1,7 +1,41 @@
 import { createBreakpoints } from '@/utils/createBreakpoints';
 import { Breakpoints } from '@/ui-kit/constants/global';
 import { Colors } from '@/ui-kit/constants/global';
-import { ITheme } from '@/themes/types';
+import { ITheme, TRawTypography } from '@/themes/types';
+import { createTypography } from '@/utils/createTypography';
+
+const typography: TRawTypography = {
+  h1: {
+    size: 24,
+    lineHeight: 28,
+    weight: 700
+  },
+  h2: {
+    size: 18,
+    lineHeight: 21,
+    weight: 400
+  },
+  h3: {
+    size: 16,
+    lineHeight: 19,
+    weight: 700
+  },
+  body1: {
+    size: 15,
+    lineHeight: 18,
+    weight: 400
+  },
+  body2: {
+    size: 13,
+    lineHeight: 15,
+    weight: 400
+  },
+  button: {
+    size: 13,
+    lineHeight: 15,
+    weight: 500
+  }
+};
 
 export const theme: ITheme = {
   breakpoints: createBreakpoints(Breakpoints),
@@ -19,7 +53,8 @@ export const theme: ITheme = {
     onBackground: Colors.Vantablack,
     onSurface: Colors.Vantablack,
     onError: Colors.White
-  }
+  },
+  typography: createTypography(typography)
 };
 
 export const darkTheme: ITheme = {
@@ -38,5 +73,6 @@ export const darkTheme: ITheme = {
     onBackground: Colors.Alto,
     onSurface: Colors.Alto,
     onError: Colors.Alto
-  }
+  },
+  typography: createTypography(typography)
 };

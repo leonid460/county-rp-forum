@@ -19,4 +19,21 @@ interface IColors {
 export interface ITheme {
   breakpoints: IBreakpoints;
   colors: IColors;
+  typography: TTypography;
 }
+
+export interface ITypographyUnit {
+  weight: number;
+  size: number;
+  lineHeight: number;
+}
+
+export type TTypographyKey = 'h1' | 'h2' | 'h3' | 'body1' | 'body2' | 'button';
+
+export type TRawTypography = {
+  [key in TTypographyKey]: ITypographyUnit;
+};
+
+export type TTypography = {
+  [key in TTypographyKey]: string;
+};
