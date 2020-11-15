@@ -4,6 +4,7 @@ import { MenuIcon } from './MenuIcon';
 import { useDeviceType } from '@/utils/useDeviceType';
 import { NavItemsList } from './NavItemsList/NavItemsList';
 import { INavItemsListProps } from './NavItemsList/types';
+import { mainLocations } from '@/locations';
 
 const MobileNavMenu = ({ locations }: INavItemsListProps) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -24,14 +25,9 @@ export const NavMenu = () => {
   const { isTablet, isMobile } = useDeviceType();
   const shouldRenderMobileVersion = isMobile || isTablet;
 
-  const locations = [
-    { route: '/nowhere', name: 'Главная' },
-    { route: '/', name: 'Форум' }
-  ];
-
   return shouldRenderMobileVersion ? (
-    <MobileNavMenu locations={locations} />
+    <MobileNavMenu locations={mainLocations} />
   ) : (
-    <NavItemsList locations={locations} />
+    <NavItemsList locations={mainLocations} />
   );
 };
