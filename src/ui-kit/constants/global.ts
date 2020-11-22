@@ -3,7 +3,8 @@ import { IRawBreakPoints } from '@/utils/createBreakpoints';
 export enum Gaps {
   Gap4 = '4px',
   Gap8 = '8px',
-  Gap16 = '16px',
+  Gap12 = '12px',
+  Gap20 = '20px',
   Gap24 = '24px',
   Gap32 = '32px',
   Gap40 = '40px',

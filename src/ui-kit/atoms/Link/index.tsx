@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 export const Link: React.FC<DetailedHTMLProps<
   AnchorHTMLAttributes<HTMLAnchorElement>,
   HTMLAnchorElement
->> = ({ children, href, className, ...props }) => {
+>> = ({ children, href, className, key, ...props }) => {
   const pathname = useRouter().pathname;
   let classList = className;
 
@@ -14,7 +14,7 @@ export const Link: React.FC<DetailedHTMLProps<
   }
 
   return (
-    <NextLink href={href}>
+    <NextLink href={href} key={key}>
       <a className={classList} {...props}>
         {children}
       </a>
