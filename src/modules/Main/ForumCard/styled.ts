@@ -1,11 +1,17 @@
 import styled from '@/utils/styled';
+import { Gaps } from '@/ui-kit/constants/global';
 
 export const CardContainer = styled.div`
+  overflow: hidden;
   width: 100%;
   border-radius: 4px;
-  overflow: hidden;
+  margin-bottom: ${Gaps.Gap20};
   background: ${({ theme }) => theme.colors.surface};
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 `;
 
 export const CardHeadContainer = styled.div`
