@@ -18,6 +18,7 @@ export const CardHeadContainer = styled.div`
 
 export const Title = styled.h3`
   ${({ theme }) => theme.typography.h3};
+  color: ${({ theme }) => theme.colors.onSurface};
 `;
 
 export const CardBody = styled.div`
