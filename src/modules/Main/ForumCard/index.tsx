@@ -3,9 +3,9 @@ import * as Styled from './styled';
 import { ShowHideButton } from './ShowHideButton';
 import { SubForumRow } from './SubForumRow';
 import { useCollapsible } from './useCollapsible';
-import { IForumCardProps } from './types';
+import { IForum } from './types';
 
-export const ForumCard = ({ name, subForums }: IForumCardProps) => {
+export const ForumCard = ({ name, subForums }: IForum) => {
   const [showBody, setShowBody] = useState(true);
   const { ref: bodyRef, maxHeight: bodyMaxHeight } = useCollapsible();
   const isNotEmpty = !!subForums;

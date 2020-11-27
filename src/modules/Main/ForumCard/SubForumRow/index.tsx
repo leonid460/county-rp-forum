@@ -20,7 +20,7 @@ export const SubForumRow = ({ name, moderators, messagesCount, viewableTopic }: 
     </Styled.MessagesCountWrapper>
   );
 
-  const renderModerators = () => (
+  const renderModeratorsList = () => (
     <Styled.SecondaryText>
       Модераторы: {moderators.reduce((acc, item) => (acc += `, ${item}`))}
     </Styled.SecondaryText>
@@ -38,7 +38,7 @@ export const SubForumRow = ({ name, moderators, messagesCount, viewableTopic }: 
       <Avatar />
       <Styled.MainInfoContainer>
         <Styled.PrimaryText>{name}</Styled.PrimaryText>
-        {moderators && renderModerators()}
+        {moderators && renderModeratorsList()}
       </Styled.MainInfoContainer>
       {shouldRenderMessagesCount && renderMessagesCount()}
       {viewableTopic && (

@@ -12,7 +12,7 @@ interface ILastTopicInfo {
   date: Date;
 }
 
-export interface IForumCardProps {
+export interface IForum {
   name: string;
   subForums?: ISubForumInfo[];
 }
