@@ -1,4 +1,4 @@
-import styled from '@/utils/styled';
+import styled from '@emotion/styled';
 
 export const Avatar = styled.img`
   width: 40px;

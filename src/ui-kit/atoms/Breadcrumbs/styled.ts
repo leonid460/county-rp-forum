@@ -1,4 +1,4 @@
-import styled from '@/utils/styled';
+import styled from '@emotion/styled';
 import { Link } from '@/ui-kit/atoms/Link';
 import { Gaps } from '@/ui-kit/constants/global';
 

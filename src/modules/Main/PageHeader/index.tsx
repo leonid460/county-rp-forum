@@ -1,4 +1,4 @@
-import styled from '@/utils/styled';
+import styled from '@emotion/styled';
 import { Gaps } from '@/ui-kit/constants/global';
 
 export const PageHeader = styled.h1`

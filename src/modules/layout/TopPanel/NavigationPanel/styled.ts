@@ -1,4 +1,4 @@
-import styled from '@/utils/styled';
+import styled from '@emotion/styled';
 import { Box } from '@/ui-kit/atoms/Box';
 
 export const NavigationPanel = styled.div`

@@ -1,4 +1,4 @@
-import styled from '@/utils/styled';
+import styled from '@emotion/styled';
 import { SecondaryButton as ProtoSecondaryButton } from '@/ui-kit/atoms/Buttons/SecondaryButton';
 
 export const Container = styled.div`

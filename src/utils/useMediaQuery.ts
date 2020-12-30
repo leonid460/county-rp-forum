@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ITheme } from '@/themes/types';
-import { useTheme } from 'emotion-theming';
+import { useTheme } from '@emotion/react';
 
 function removerSubString(str: string, subStr: string) {
   const beginOfSubstr = str.indexOf(subStr);

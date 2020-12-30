@@ -1,7 +1,8 @@
 import { createBreakpoints } from '@/utils/createBreakpoints';
 import { Breakpoints } from '@/ui-kit/constants/global';
 import { Colors } from '@/ui-kit/constants/global';
-import { ITheme, TRawTypography } from '@/themes/types';
+import { TRawTypography } from '@/themes/types';
+import { Theme } from '@emotion/react';
 import { createTypography } from '@/utils/createTypography';
 
 const typography: TRawTypography = {
@@ -37,7 +38,7 @@ const typography: TRawTypography = {
   }
 };
 
-export const theme: ITheme = {
+export const theme: Theme = {
   breakpoints: createBreakpoints(Breakpoints),
   colors: {
     primary: Colors.Cobalt,
@@ -57,7 +58,7 @@ export const theme: ITheme = {
   typography: createTypography(typography)
 };
 
-export const darkTheme: ITheme = {
+export const darkTheme: Theme = {
   breakpoints: createBreakpoints(Breakpoints),
   colors: {
     primary: Colors.Heliotrope,

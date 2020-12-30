@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectCurrentTheme } from '@/store/themeSlice/selectors';
-import { ThemeProvider } from 'emotion-theming';
+import { ThemeProvider } from '@emotion/react';
 import { GlobalStyles } from '@/modules/layout/GlobalStyles';
 import { getDisplayName } from '@/utils/getDisplayName';
 

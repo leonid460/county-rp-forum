@@ -1,4 +1,4 @@
-import styled from '@/utils/styled';
+import styled from '@emotion/styled';
 
 export const PrimaryButton = styled.button`
   padding: 10px 20px;

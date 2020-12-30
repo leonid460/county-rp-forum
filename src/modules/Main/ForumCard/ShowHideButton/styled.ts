@@ -1,4 +1,4 @@
-import styled from '@/utils/styled';
+import styled from '@emotion/styled';
 
 export const IconWrapper = styled.div<{ direction: 'left' | 'down' }>`
   transform: rotate(${({ direction }) => (direction === 'left' ? '90' : '0')}deg);

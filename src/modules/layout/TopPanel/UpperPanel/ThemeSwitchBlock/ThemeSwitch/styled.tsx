@@ -1,4 +1,4 @@
-import styled from '@/utils/styled';
+import styled from '@emotion/styled';
 import React from 'react';
 
 export const Wrapper = styled.label`

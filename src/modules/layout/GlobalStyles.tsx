@@ -1,12 +1,11 @@
-import { ITheme } from '@/themes/types';
-import { css, Global } from '@emotion/core';
+import { Theme, css, Global } from '@emotion/react';
 import React from 'react';
 
 const fontUrl =
   // eslint-disable-next-line max-len
   'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap';
 
-export const GlobalStyles = ({ theme }: { theme: ITheme }) => (
+export const GlobalStyles = ({ theme }: { theme: Theme }) => (
   <Global
     styles={css`
       @import url(${fontUrl});

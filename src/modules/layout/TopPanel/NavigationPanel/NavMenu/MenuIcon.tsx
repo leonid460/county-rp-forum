@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTheme } from '@/utils/useTheme';
+import { useTheme } from '@emotion/react';
 
 interface IMenuIconProps {
   isActive: boolean;

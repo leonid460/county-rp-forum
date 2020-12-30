@@ -1,6 +1,6 @@
 import { IBreakpoints } from '@/utils/createBreakpoints';
 
-interface IColors {
+export interface IColors {
   primary: string;
   primaryVariant: string;
   secondary: string;

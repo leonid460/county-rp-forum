@@ -1,4 +1,4 @@
-import styled from '@/utils/styled';
+import styled from '@emotion/styled';
 import { Margins } from '@/ui-kit/constants/global';
 import { generateBoxWidth } from './generateBoxWidth';
 

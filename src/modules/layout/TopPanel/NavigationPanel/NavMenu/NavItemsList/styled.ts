@@ -1,4 +1,4 @@
-import styled from '@/utils/styled';
+import styled from '@emotion/styled';
 import { Link } from '@/ui-kit/atoms/Link';
 
 export const NavItemsWrapper = styled.div`
