@@ -5,6 +5,7 @@ export const PageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  overflow: hidden;
   justify-content: flex-start;
   width: 100%;
 `;

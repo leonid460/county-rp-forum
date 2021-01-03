@@ -5,11 +5,17 @@ import { TRawTypography } from '@/themes/types';
 import { Theme } from '@emotion/react';
 import { createTypography } from '@/utils/createTypography';
 
+const breakpoints = createBreakpoints(Breakpoints);
+
 const typography: TRawTypography = {
   h1: {
-    size: 24,
-    lineHeight: 28,
-    weight: 700
+    lineHeight: 23,
+    size: 20,
+    weight: 700,
+    [breakpoints.up('m')]: {
+      size: 24,
+      lineHeight: 28
+    }
   },
   h2: {
     size: 18,
@@ -27,9 +33,13 @@ const typography: TRawTypography = {
     weight: 400
   },
   body2: {
-    size: 13,
-    lineHeight: 15,
-    weight: 400
+    lineHeight: 12,
+    size: 10,
+    weight: 400,
+    [breakpoints.up('m')]: {
+      size: 13,
+      lineHeight: 15
+    }
   },
   button: {
     size: 13,
@@ -39,7 +49,7 @@ const typography: TRawTypography = {
 };
 
 export const theme: Theme = {
-  breakpoints: createBreakpoints(Breakpoints),
+  breakpoints: breakpoints,
   colors: {
     primary: Colors.Cobalt,
     primaryVariant: Colors.Azure,

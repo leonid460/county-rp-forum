@@ -4,6 +4,7 @@ export enum Gaps {
   Gap4 = '4px',
   Gap8 = '8px',
   Gap12 = '12px',
+  Gap16 = '16px',
   Gap20 = '20px',
   Gap24 = '24px',
   Gap32 = '32px',

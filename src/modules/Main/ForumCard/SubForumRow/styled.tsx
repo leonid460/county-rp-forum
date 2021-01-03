@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Link as OriginalLink } from '@/ui-kit/atoms/Link';
 
 export const Container = styled.div`
   display: flex;
@@ -16,13 +17,27 @@ export const Container = styled.div`
   }
 `;
 
+export const InfoSectionContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const MainInfoSectionContainer = styled(InfoSectionContainer)`
+  flex: 1;
+`;
+
+export const CountSectionContainer = styled(InfoSectionContainer)``;
+
+export const LastTopicSectionContainer = styled(InfoSectionContainer)`
+  width: 25%;
+`;
+
 const RowInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
 export const MainInfoContainer = styled(RowInfoContainer)`
-  flex-grow: 1;
   margin-left: 16px;
 `;
 
@@ -43,4 +58,13 @@ export const MessagesCountWrapper = styled(RowInfoContainer)`
 
 export const ViewableTopicInfoSection = styled(RowInfoContainer)`
   margin-left: 8px;
+`;
+
+export const Link = styled(OriginalLink)`
+  cursor: pointer;
+  text-decoration: none !important;
+
+  &:hover > * {
+    color: ${({ theme }) => theme.colors.primary};
+  }
 `;

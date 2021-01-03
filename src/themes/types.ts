@@ -23,15 +23,19 @@ export interface ITheme {
 }
 
 export interface ITypographyUnit {
-  weight: number;
+  weight?: number;
   size: number;
-  lineHeight: number;
+  lineHeight?: number;
+}
+
+export interface ITypographyUnitInMediaQuery {
+  [x: string]: ITypographyUnit | undefined;
 }
 
 export type TTypographyKey = 'h1' | 'h2' | 'h3' | 'body1' | 'body2' | 'button';
 
 export type TRawTypography = {
-  [key in TTypographyKey]: ITypographyUnit;
+  [key in TTypographyKey]: ITypographyUnit | ITypographyUnitInMediaQuery;
 };
 
 export type TTypography = {

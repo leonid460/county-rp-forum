@@ -7,15 +7,16 @@ export const HomePageAdapters = {
 
 function deserializeDateInForum(forum: IRawForum) {
   const subForums = forum.subForums.map((subForum) => {
-    const deserializedDate = new Date(subForum.viewableTopic.date);
-    const viewableTopic = {
-      ...subForum.viewableTopic,
+    const deserializedDate = new Date(subForum.lastTopic.date);
+
+    const lastTopic = {
+      ...subForum.lastTopic,
       date: deserializedDate
     };
 
     return {
       ...subForum,
-      viewableTopic
+      lastTopic
     };
   });
 
