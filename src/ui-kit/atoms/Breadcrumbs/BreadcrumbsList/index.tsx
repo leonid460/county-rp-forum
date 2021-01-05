@@ -1,10 +1,10 @@
 import React from 'react';
+import { insertJsxItemBetween } from '@/utils/insertItemBetween';
+import { IBreadcrumbsListProps } from './types';
 import * as Styled from './styled';
 import { SvgKeyboardArrow } from './SvgKeyboardArrow';
-import { IBreadcrumbsProps } from './types';
-import { insertJsxItemBetween } from '@/utils/insertItemBetween';
 
-export const BreadcrumbsList = ({ entries }: IBreadcrumbsProps) => {
+export const BreadcrumbsList = ({ entries }: IBreadcrumbsListProps) => {
   let listToRender = entries.map(({ route, name }) => (
     <Styled.BreadcrumbItem href={route} key={route}>
       {name}
@@ -17,5 +17,3 @@ export const BreadcrumbsList = ({ entries }: IBreadcrumbsProps) => {
 
   return <Styled.BreadcrumbsContainer>{listToRender}</Styled.BreadcrumbsContainer>;
 };
-
-// {index !== entries.length - 1 && <SvgKeyboardArrow key={`${name}-arrow`} />}

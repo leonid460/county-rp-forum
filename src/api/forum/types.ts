@@ -1,5 +1,5 @@
 export interface IForumPageService {
-  getForumInfo(id: string): IRawForumInfo;
+  getForumInfo(id: string): Promise<IRawForumInfo>;
 }
 
 export interface IRawForumInfo {

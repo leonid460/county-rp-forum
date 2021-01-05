@@ -3,6 +3,6 @@ export interface IBreadCrumbEntry {
   name: string;
 }
 
-export interface IBreadcrumbsProps {
+export interface IBreadcrumbsListProps {
   entries: IBreadCrumbEntry[];
 }

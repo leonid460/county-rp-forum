@@ -34,5 +34,5 @@ const forums: IRawForum[] = [
 ];
 
 export const HomePageMocks: IHomePageService = {
-  getForums: (): IRawForum[] => forums
+  getForums: () => new Promise((resolve) => resolve(forums))
 };

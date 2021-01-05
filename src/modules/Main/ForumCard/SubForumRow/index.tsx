@@ -4,6 +4,7 @@ import { Avatar } from '@/ui-kit/atoms/Avatar';
 import { ISubForumInfo } from '../types';
 import { useDeviceType } from '@/utils/useDeviceType';
 import { transformDateToRussianDDMMString } from '@/utils/transformDateToRussianDDMMString';
+import { formatNumeralAndWordTuple } from '@/utils/formatNumeralAndWordTuple';
 
 export const SubForumRow = ({ name, id, moderators, messagesCount, lastTopic }: ISubForumInfo) => {
   const { isMobile } = useDeviceType();
@@ -13,14 +14,25 @@ export const SubForumRow = ({ name, id, moderators, messagesCount, lastTopic }: 
     lastTopic.date
   )}`;
 
-  const renderMessagesCount = () => (
-    <Styled.CountSectionContainer>
-      <Styled.MessagesCountWrapper>
-        <Styled.PrimaryText>{messagesCount}</Styled.PrimaryText>
-        <Styled.SecondaryText>сообщений</Styled.SecondaryText>
-      </Styled.MessagesCountWrapper>
-    </Styled.CountSectionContainer>
-  );
+  const renderMessagesCount = () => {
+    const formattedMessagesStr = formatNumeralAndWordTuple(messagesCount, [
+      'сообщение',
+      'сообщения',
+      'сообщений'
+    ]);
+
+    const formattedMessagesCount = formattedMessagesStr.split(' ')[0];
+    const formattedMessagesLabel = formattedMessagesStr.split(' ')[1];
+
+    return (
+      <Styled.CountSectionContainer>
+        <Styled.MessagesCountWrapper>
+          <Styled.PrimaryText>{formattedMessagesCount}</Styled.PrimaryText>
+          <Styled.SecondaryText>{formattedMessagesLabel}</Styled.SecondaryText>
+        </Styled.MessagesCountWrapper>
+      </Styled.CountSectionContainer>
+    );
+  };
 
   const renderModeratorsList = () => (
     <Styled.SecondaryText>

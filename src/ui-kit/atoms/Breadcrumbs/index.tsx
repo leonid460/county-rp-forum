@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { BreadcrumbsList } from './BreadcrumbsList';
-import { IBreadCrumbEntry } from './types';
-import { locations } from '@/locations';
-import { defineLocationName } from '@/utils/defineLocationName';
+import { IBreadCrumbEntry } from './BreadcrumbsList/types';
+import { locationsMap } from '@/locations';
+import { collectRoutes } from './collectRoutes';
 
 export const Breadcrumbs = () => {
-  // Заглушка на потом.
-  // TODO: сделать норм передачу посещенных страниц из роутера в бреадкрамбсы
-  const visitedRoutes = [locations.main.route, locations.forum.route];
+  const router = useRouter();
+  const pathname = router.asPath;
+  const [entries, seEntries] = useState<IBreadCrumbEntry[]>([]);
 
-  const entries: IBreadCrumbEntry[] = visitedRoutes.map((route) => ({
-    route,
-    name: defineLocationName(route)
-  }));
+  useEffect(() => {
+    (async function () {
+      const newEntries = await collectRoutes(pathname, locationsMap);
+      seEntries(newEntries as IBreadCrumbEntry[]);
+    })();
+  }, []);
 
   return <BreadcrumbsList entries={entries} />;
 };

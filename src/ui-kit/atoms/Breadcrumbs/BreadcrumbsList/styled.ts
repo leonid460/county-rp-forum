@@ -22,5 +22,4 @@ export const BreadcrumbsContainer = styled.div`
   display: flex;
   align-items: center;
   padding: ${Gaps.Gap12} 0;
-  //height: 39px;
 `;

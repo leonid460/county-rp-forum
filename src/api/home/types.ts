@@ -1,5 +1,5 @@
 export interface IHomePageService {
-  getForums(): IRawForum[];
+  getForums(): Promise<IRawForum[]>;
 }
 
 export interface IRawForum {

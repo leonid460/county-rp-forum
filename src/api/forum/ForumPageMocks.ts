@@ -60,7 +60,6 @@ const forums: IRawForumInfo[] = [
 ];
 
 export const ForumPageMocks: IForumPageService = {
-  getForumInfo: (id: string): IRawForumInfo => {
-    return forums.find((forum) => forum.id === id);
-  }
+  getForumInfo: (id: string) =>
+    new Promise((resolve) => resolve(forums.find((forum) => forum.id === id)))
 };

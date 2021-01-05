@@ -6,8 +6,8 @@ export function truncNumeral(numeral: number): string {
   }
 
   if (!Math.round(numeral / 1000000)) {
-    return `${round10(numeral / 1000, -1)}K`;
+    return `${round10(numeral / 1000, -1)}k`;
   }
 
-  return `${round10(numeral / 1000000, -1)}M`;
+  return `${round10(numeral / 1000000, -1)}m`;
 }

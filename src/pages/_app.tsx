@@ -8,7 +8,7 @@ import { withThemeAndGlobalStyles } from '@/modules/layout/withThemeAndGlobalSty
 
 const MyApp = ({ Component, pageProps, ...appProps }: AppProps) => {
   const { initialReduxState, ...restPageProps } = pageProps;
-  const store = useStore({ ...initialReduxState, theme: 'light' });
+  const store = useStore({ ...initialReduxState });
 
   const LayoutWithThemeAndGlobalStyles = withThemeAndGlobalStyles(Layout);
 
