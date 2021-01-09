@@ -5,37 +5,9 @@ export async function collectRoutes(
   path: string,
   locationsMap: Map<string, ILocationsMapItemValue>
 ) {
-  const locationsEntries: Array<{ name?: string; route: string }> = [];
-  const nameResolvers: (() => Promise<string>)[] = [];
-  let actualPath = '';
-  let pathWithLabels = '';
-
-  getPathTokens(path).forEach((token) => {
-    actualPath = pathJoin([actualPath, token]);
-
-    if (locationsMap.has(pathJoin([pathWithLabels, token]))) {
-      pathWithLabels = pathJoin([pathWithLabels, token]);
-      const location = locationsMap.get(pathWithLabels);
-
-      location &&
-        locationsEntries.push({
-          route: actualPath,
-          name: location.name
-        });
-    } else if (locationsMap.has(pathJoin([pathWithLabels, token, ':id']))) {
-      pathWithLabels = pathJoin([pathWithLabels, token, ':id']);
-    } else if (locationsMap.has(pathWithLabels)) {
-      const location = locationsMap.get(pathWithLabels);
-      nameResolvers.push(() => location.nameResolver(token));
-
-      locationsEntries.push({
-        route: actualPath
-      });
-    }
-  });
-
-  const names: string[] = await Promise.all(nameResolvers.map((resolver) => resolver()));
-  const reverseNamesList = names.reverse();
+  const { locationsEntries, nameResolvers } = getLocationEntries(path, locationsMap);
+  const resolvedNames: string[] = await Promise.all(nameResolvers.map((resolver) => resolver()));
+  const reverseNamesList = resolvedNames.reverse();
 
   return locationsEntries.map((entry) => {
     if (entry.name) {
@@ -47,6 +19,48 @@ export async function collectRoutes(
       };
     }
   });
+}
+
+function getLocationEntries(path: string, locationsMap: Map<string, ILocationsMapItemValue>) {
+  const locationsEntries: Array<{ name?: string; route: string }> = [];
+  let actualPath = '';
+  let pathWithLabels = '';
+  const nameResolvers: (() => Promise<string>)[] = [];
+
+  getPathTokens(path).forEach((token) => {
+    actualPath = pathJoin([actualPath, token]);
+    const newPathForStaticRoute = pathJoin([pathWithLabels, token]);
+    const newPathForDynamicRoute = pathJoin([pathWithLabels, token, ':id']);
+
+    const isStaticLocation = !!locationsMap.has(newPathForStaticRoute);
+    const isDynamicLocation = !!locationsMap.has(newPathForDynamicRoute);
+    const isPrevLocationDynamic = !!locationsMap.has(pathWithLabels);
+
+    if (isStaticLocation) {
+      pathWithLabels = newPathForStaticRoute;
+      const location = locationsMap.get(pathWithLabels);
+
+      location &&
+        locationsEntries.push({
+          route: actualPath,
+          name: location.name
+        });
+    } else if (isDynamicLocation) {
+      pathWithLabels = newPathForDynamicRoute;
+    } else if (isPrevLocationDynamic) {
+      const location = locationsMap.get(pathWithLabels);
+      nameResolvers.push(() => location.nameResolver(token));
+
+      locationsEntries.push({
+        route: actualPath
+      });
+    }
+  });
+
+  return {
+    locationsEntries,
+    nameResolvers
+  };
 }
 
 function getPathTokens(path: string) {
