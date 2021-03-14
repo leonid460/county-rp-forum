@@ -13,7 +13,8 @@ function deserializeDateInTopic(topic: IRawTopicInfo): ITopic {
     creationDate: new Date(topic.creationDate),
     repliesCount: topic.repliesCount,
     isClosed: topic.isClosed,
-    viewsCount: topic.viewsCount
+    viewsCount: topic.viewsCount,
+    tags: topic.tags
   };
 
   if (topic.lastMessageInfo) {

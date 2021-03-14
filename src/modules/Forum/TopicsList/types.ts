@@ -12,6 +12,7 @@ export interface ITopic {
   viewsCount: number;
   isClosed: boolean;
   lastMessageInfo?: ILastMessageInfo;
+  tags: string[];
 }
 
 interface ILastMessageInfo {

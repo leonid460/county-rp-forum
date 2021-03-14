@@ -17,6 +17,7 @@ export interface IRawTopicInfo {
   viewsCount: number;
   isClosed: boolean;
   lastMessageInfo?: IRawLastMessageInfo;
+  tags: string[];
 }
 
 interface IRawLastMessageInfo {

@@ -1,17 +1,11 @@
 import styled from '@emotion/styled';
 import { Gaps } from '@/ui-kit/constants/global';
-import { Link as OriginalLink } from '@/ui-kit/atoms/Link';
-import { Avatar as OriginalAvatar } from '@/ui-kit/atoms/Avatar';
 import { SvgLock as OriginalSvgLock } from '@/ui-kit/atoms/Icons/SvgLock';
 import { Tag as OriginalTag } from '@/ui-kit/atoms/Tag';
+import { Link as OriginalLink } from '@/ui-kit/atoms/Link';
+import { Avatar as OriginalAvatar } from '@/ui-kit/atoms/Avatar';
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-`;
-
-export const TopicRowContainer = styled.div`
+export const ListItemContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -44,16 +38,6 @@ export const HeadingSectionContainer = styled(RowSectionContainer)`
   }
 `;
 
-export const LastMessageSectionContainer = styled(RowSectionContainer)`
-  flex-direction: column;
-  padding-left: ${Gaps.Gap16};
-
-  ${({ theme }) => theme.breakpoints.up('m')} {
-    flex-direction: row;
-    max-width: 25%;
-  }
-`;
-
 export const ColumnContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -63,15 +47,10 @@ export const HeadingColumn = styled(ColumnContainer)`
   flex-grow: 1;
 `;
 
-export const CountersSectionColumn = styled(ColumnContainer)`
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-
-  ${({ theme }) => theme.breakpoints.up('m')} {
-    flex-direction: column;
-    align-items: flex-end;
-  }
+export const SvgLock = styled(OriginalSvgLock)`
+  position: absolute;
+  top: calc(21px - 18px);
+  left: 0;
 `;
 
 export const TagAndNameWrapper = styled.span`
@@ -82,13 +61,13 @@ export const TagAndNameWrapper = styled.span`
   margin-bottom: ${Gaps.Gap4};
 `;
 
+export const Tag = styled(OriginalTag)`
+  margin-right: ${Gaps.Gap4};
+`;
+
 export const LinkToTopic = styled(OriginalLink)`
   ${({ theme }) => theme.typography.h2};
   color: ${({ theme }) => theme.colors.onSurface};
-`;
-
-export const Tag = styled(OriginalTag)`
-  margin-right: ${Gaps.Gap4};
 `;
 
 const Text = styled.span`
@@ -108,6 +87,17 @@ export const SecondaryText = styled(Text)`
   color: ${({ theme }) => theme.colors.secondary};
 `;
 
+export const CountersSectionColumn = styled(ColumnContainer)`
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  ${({ theme }) => theme.breakpoints.up('m')} {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+`;
+
 export const Avatar = styled(OriginalAvatar)`
   margin-bottom: ${Gaps.Gap4};
 
@@ -117,8 +107,12 @@ export const Avatar = styled(OriginalAvatar)`
   }
 `;
 
-export const SvgLock = styled(OriginalSvgLock)`
-  position: absolute;
-  top: calc(21px - 18px);
-  left: 0;
+export const LastMessageSectionContainer = styled(RowSectionContainer)`
+  flex-direction: column;
+  padding-left: ${Gaps.Gap16};
+
+  ${({ theme }) => theme.breakpoints.up('m')} {
+    flex-direction: row;
+    max-width: 25%;
+  }
 `;

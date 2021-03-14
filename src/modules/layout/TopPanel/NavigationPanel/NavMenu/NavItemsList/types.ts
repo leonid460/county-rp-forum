@@ -1,5 +1,5 @@
-type TLocation = { route: string; name: string };
+import { ILocation } from '@/locations/types';
 
 export interface INavItemsListProps {
-  locations: TLocation[];
+  locations: ILocation[];
 }

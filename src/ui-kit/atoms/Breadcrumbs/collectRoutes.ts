@@ -33,8 +33,8 @@ function getLocationEntries(path: string, locationsMap: Map<string, ILocationsMa
     const newPathForDynamicRoute = pathJoin([pathWithLabels, token, ':id']);
 
     const isStaticLocation = !!locationsMap.has(newPathForStaticRoute);
-    const isDynamicLocation = !!locationsMap.has(newPathForDynamicRoute);
-    const isPrevLocationDynamic = !!locationsMap.has(pathWithLabels);
+    const isDynamicLocation = !!locationsMap.get(newPathForDynamicRoute)?.nameResolver;
+    const isPrevLocationDynamic = !!locationsMap.get(pathWithLabels)?.nameResolver;
 
     if (isStaticLocation) {
       pathWithLabels = newPathForStaticRoute;

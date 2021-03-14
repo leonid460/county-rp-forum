@@ -21,9 +21,9 @@ function checkMediaQuery(queryText: string) {
   return window.matchMedia(queryText).matches;
 }
 
-export function useMediaQuery<Theme = ITheme>(query: (theme: Theme) => string): boolean {
+export function useMediaQuery(query: (theme: ITheme) => string): boolean {
   const [mediaQueryMatch, setMediaQueryMatch] = useState(false);
-  const theme = useTheme<Theme>();
+  const theme = useTheme();
   const queryText = query(theme);
   const changedQuery = removerSubString(queryText, '@media');
 
