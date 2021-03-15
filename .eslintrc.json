@@ -58,5 +58,13 @@
         "react": {
             "version": "detect"
         }
-    }
+    },
+    "overrides": [
+        {
+            "files": ["*/*.js"],
+            "rules": {
+                 "@typescript-eslint/...": "off"
+            }
+        }
+    ]
 }

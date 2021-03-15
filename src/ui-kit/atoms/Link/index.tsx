@@ -60,8 +60,6 @@ export const Link: React.FC<ILinkProps> = ({
     classList += ' active';
   }
 
-  // //TODO: напиши для этого unit-тесты
-
   if (isRelativeHRef) {
     correctedHref = handleRelativePath(href, router.asPath);
   }
