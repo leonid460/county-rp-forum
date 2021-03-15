@@ -16,6 +16,7 @@ describe('Testing <Link /> component', () => {
   it('renders OK', () => {
     const { getByText } = render(<Link href="/">{text}</Link>);
     const renderedLink = getByText(text);
+
     expect(renderedLink).toHaveTextContent(text);
   });
 
@@ -24,6 +25,7 @@ describe('Testing <Link /> component', () => {
 
     const { getByText } = render(<Link href={href}>{text}</Link>);
     const renderedLink = getByText(text);
+
     expect(renderedLink.getAttribute('href')).toBe(href);
   });
 
@@ -35,6 +37,7 @@ describe('Testing <Link /> component', () => {
 
     const { getByText } = render(<Link href={href}>{text}</Link>);
     const renderedLink = getByText(text);
+
     expect(renderedLink.getAttribute('href')).toBe(`${currentPath}/${href}`);
   });
 
@@ -47,6 +50,21 @@ describe('Testing <Link /> component', () => {
 
     const { getByText } = render(<Link href={href2}>{text}</Link>);
     const renderedLink = getByText(text);
+
     expect(renderedLink.getAttribute('href')).toBe(`/${href2}`);
+  });
+
+  it('handles proper href when current path contains hash', () => {
+    const base = '/forum/forum-3';
+    const initialPath = '/forum/forum-3#hello-there';
+    const relativeHref = 'topic/topic-54';
+    const desiredGeneratedHref = `${base}/${relativeHref}`;
+
+    (useRouter as jest.Mock).mockReturnValue({ pathname: initialPath, asPath: initialPath });
+
+    const { getByText } = render(<Link href={relativeHref}>{text}</Link>);
+    const renderedElement = getByText(text);
+
+    expect(renderedElement.getAttribute('href')).toBe(desiredGeneratedHref);
   });
 });
