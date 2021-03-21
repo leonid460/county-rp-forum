@@ -1,5 +1,5 @@
 import React from 'react';
-import { transformDateToRussianDDMMString } from '@/utils/transformDateToRussianDDMMString';
+import { transformDateToRussianDDMMYYString } from '@/utils/transformDateToRussianDDMMString';
 import * as Styled from './styled';
 import { ITopicHeaderProps } from './types';
 import { boxShadow } from '@/ui-kit/styles/boxShadow';
@@ -9,9 +9,9 @@ export const Header = ({ title, tags, authorInfo }: ITopicHeaderProps) => {
     <Styled.AuthorInfoContainer>
       <Styled.AuthorAvatar src={authorInfo.avatarUrl} />
       <Styled.AuthorInfoTextWrapper>
-        <Styled.AuthorName>{authorInfo.name}</Styled.AuthorName>
+        <Styled.AuthorName>Автор: {authorInfo.name}</Styled.AuthorName>
         <Styled.CreationDate>
-          {transformDateToRussianDDMMString(authorInfo.creationDate)}
+          {transformDateToRussianDDMMYYString(authorInfo.creationDate)}
         </Styled.CreationDate>
       </Styled.AuthorInfoTextWrapper>
     </Styled.AuthorInfoContainer>

@@ -45,9 +45,13 @@ export const AuthorAvatar = styled(Avatar)`
 export const AuthorInfoTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 `;
 
 export const AuthorName = styled.div`
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   margin-bottom: ${Gaps.Gap4};
   ${({ theme }) => theme.typography.body2};
   color: ${({ theme }) => theme.colors.onSurface};
