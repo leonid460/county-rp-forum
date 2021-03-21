@@ -13,7 +13,11 @@ async function forumNameResolver(id: string) {
 }
 
 async function topicNameResolver(id: string) {
-  return new Promise<string>((resolve) => resolve('Topic' + id));
+  const topicInfo = await ServicesContainer.TopicPageService.getTopicInfo(id);
+
+  if (topicInfo) {
+    return topicInfo.name;
+  }
 }
 
 export const locations: ILocation[] = [
