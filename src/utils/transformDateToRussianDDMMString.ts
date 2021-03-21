@@ -1,3 +1,7 @@
+export function transformDateToRussianDDMMYYString(date: Date) {
+  return `${transformDateToRussianDDMMString(date)}, ${date.getFullYear()}`;
+}
+
 export function transformDateToRussianDDMMString(date: Date) {
   return `${date.getDate()} ${translateMonth(date.getMonth())}`;
 }
