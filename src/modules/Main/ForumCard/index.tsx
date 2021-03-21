@@ -4,6 +4,7 @@ import { ShowHideButton } from './ShowHideButton';
 import { SubForumRow } from './SubForumRow';
 import { useCollapsible } from './useCollapsible';
 import { IForum } from './types';
+import { boxShadow } from '@/ui-kit/styles/boxShadow';
 
 export const ForumCard = ({ name, subForums }: IForum) => {
   const [showBody, setShowBody] = useState(true);
@@ -14,7 +15,7 @@ export const ForumCard = ({ name, subForums }: IForum) => {
     subForums.map((subForum) => <SubForumRow key={subForum.name} {...subForum} />);
 
   return (
-    <Styled.CardContainer>
+    <Styled.CardContainer className={boxShadow}>
       <Styled.CardHeadContainer>
         <Styled.Title>{name}</Styled.Title>
         {isNotEmpty && (

@@ -7,7 +7,6 @@ export const CardContainer = styled.div`
   border-radius: 4px;
   margin-bottom: ${Gaps.Gap20};
   background: ${({ theme }) => theme.colors.surface};
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 
   &:last-of-type {
     margin-bottom: 0;
