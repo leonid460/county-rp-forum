@@ -5,69 +5,78 @@ import { Tag as OriginalTag } from '@/ui-kit/atoms/Tag';
 import { Link as OriginalLink } from '@/ui-kit/atoms/Link';
 import { Avatar as OriginalAvatar } from '@/ui-kit/atoms/Avatar';
 
-export const ListItemContainer = styled.div`
+export const ItemContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
   width: 100%;
   padding: ${Gaps.Gap16};
+  box-sizing: border-box;
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+  background: ${({ theme }) => theme.colors.surface};
 
   &:last-of-type {
     border-bottom: none;
   }
 `;
 
-const RowSectionContainer = styled.div`
+export const ContentAndLockContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  box-sizing: border-box;
+  width: 100%;
 `;
 
-export const HeadingSectionContainer = styled(RowSectionContainer)`
-  flex-direction: column;
-  align-items: stretch;
-  position: relative;
-  flex-grow: 1;
-  padding-left: ${Gaps.Gap16};
-
-  ${({ theme }) => theme.breakpoints.up('m')} {
-    flex-direction: row;
-    align-items: center;
-  }
-`;
-
-export const ColumnContainer = styled.div`
+export const LockIconContainer = styled.div`
   display: flex;
-  flex-direction: column;
-`;
-
-export const HeadingColumn = styled(ColumnContainer)`
-  flex-grow: 1;
+  min-width: 8px;
+  width: 8px;
+  margin-right: ${Gaps.Gap8};
 `;
 
 export const SvgLock = styled(OriginalSvgLock)`
-  position: absolute;
-  top: calc(21px - 18px);
-  left: 0;
+  margin-top: ${Gaps.Gap4};
 `;
 
-export const TagAndNameWrapper = styled.span`
-  display: inline-flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: center;
+export const ItemContentContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, calc((100% - ${Gaps.Gap8} * 3) / 4));
+  grid-template-rows: auto;
+  column-gap: ${Gaps.Gap8};
+  width: calc(100% - 16px);
+  box-sizing: border-box;
+
+  ${({ theme }) => theme.breakpoints.up('m')} {
+    grid-template-columns: repeat(8, calc((100% - ${Gaps.Gap20} * 7) / 8));
+    column-gap: ${Gaps.Gap20};
+  }
+`;
+
+export const TitlePartContainer = styled.div`
+  display: flex;
+  grid-column: 1 / 4;
+  flex-direction: column;
   margin-bottom: ${Gaps.Gap4};
-`;
 
-export const Tag = styled(OriginalTag)`
-  margin-right: ${Gaps.Gap4};
+  ${({ theme }) => theme.breakpoints.up('m')} {
+    margin-bottom: 0;
+  }
+
+  ${({ theme }) => theme.breakpoints.up('l')} {
+    grid-column: 1 / 5;
+  }
 `;
 
 export const LinkToTopic = styled(OriginalLink)`
+  margin-bottom: ${Gaps.Gap4};
   ${({ theme }) => theme.typography.h2};
   color: ${({ theme }) => theme.colors.onSurface};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
+export const AboutAuthorTextWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
 const Text = styled.span`
@@ -75,10 +84,10 @@ const Text = styled.span`
 `;
 
 export const MainText = styled(Text)`
+  margin-bottom: ${Gaps.Gap4};
   color: ${({ theme }) => theme.colors.secondary};
 
   ${({ theme }) => theme.breakpoints.up('m')} {
-    margin-bottom: ${Gaps.Gap4};
     color: ${({ theme }) => theme.colors.onSurface};
   }
 `;
@@ -87,14 +96,50 @@ export const SecondaryText = styled(Text)`
   color: ${({ theme }) => theme.colors.secondary};
 `;
 
-export const CountersSectionColumn = styled(ColumnContainer)`
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
+export const AuthorName = styled(SecondaryText)`
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
+export const TopicCreationDate = styled(SecondaryText)`
+  display: block;
+  white-space: nowrap;
+`;
+
+export const CountersColumnContainer = styled.div`
+  grid-column: 1 / 4;
+  display: flex;
+  flex-direction: column;
 
   ${({ theme }) => theme.breakpoints.up('m')} {
-    flex-direction: column;
+    grid-column: 4 / 6;
+    justify-content: center;
     align-items: flex-end;
+  }
+
+  ${({ theme }) => theme.breakpoints.up('l')} {
+    grid-column: 5 / 7;
+  }
+`;
+
+export const LastMessageInfoContainer = styled.div`
+  grid-column: 4 / 5;
+  grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  ${({ theme }) => theme.breakpoints.up('m')} {
+    grid-row: 1 / 2;
+    grid-column: 6 / 9;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  ${({ theme }) => theme.breakpoints.up('l')} {
+    grid-column: 7 / 9;
   }
 `;
 
@@ -107,12 +152,31 @@ export const Avatar = styled(OriginalAvatar)`
   }
 `;
 
-export const LastMessageSectionContainer = styled(RowSectionContainer)`
+export const LastMessageInfoTextWrapper = styled.div`
+  display: flex;
   flex-direction: column;
-  padding-left: ${Gaps.Gap16};
+  overflow: hidden;
+`;
+
+export const LastMessageAuthorName = styled(MainText)`
+  display: none;
 
   ${({ theme }) => theme.breakpoints.up('m')} {
-    flex-direction: row;
-    max-width: 25%;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
+`;
+
+export const TagsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
+  padding-top: ${Gaps.Gap8};
+  margin-top: ${Gaps.Gap8};
+`;
+
+export const Tag = styled(OriginalTag)`
+  margin-right: ${Gaps.Gap4};
 `;

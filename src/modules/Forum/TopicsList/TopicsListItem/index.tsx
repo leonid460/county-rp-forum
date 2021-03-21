@@ -4,28 +4,20 @@ import { ITopic } from '@/modules/Forum/TopicsList/types';
 import { transformDateToRussianDDMMString } from '@/utils/transformDateToRussianDDMMString';
 import { formatNumeralAndWordTuple } from '@/utils/formatNumeralAndWordTuple';
 
-export const TopicsListItem = ({ topic }: { topic: ITopic; forumId: string }) => {
-  const renderTags = (tags: ITopic['tags']) =>
-    tags.map((tag, index) => (
-      <Styled.Tag key={`${tag}-${index}`} href="#">
-        {tag}
-      </Styled.Tag>
-    ));
-
-  const renderHeadingColumn = () => (
-    <Styled.HeadingColumn>
-      {topic.isClosed && <Styled.SvgLock />}
-      <Styled.TagAndNameWrapper>
-        <>{renderTags(topic.tags)}</>
-        <Styled.LinkToTopic href={`topic/${topic.id}`}>{topic.name}</Styled.LinkToTopic>
-      </Styled.TagAndNameWrapper>
-      <Styled.SecondaryText style={{ wordBreak: 'break-word' }}>
-        {`Автор: ${topic.author}, ${transformDateToRussianDDMMString(topic.creationDate)}`}
-      </Styled.SecondaryText>
-    </Styled.HeadingColumn>
+export const TopicsListItem = ({ topic }: { topic: ITopic }) => {
+  const renderTitleColumnPart = () => (
+    <Styled.TitlePartContainer>
+      <Styled.LinkToTopic href={`topic/${topic.id}`}>{topic.name}</Styled.LinkToTopic>
+      <Styled.AboutAuthorTextWrapper>
+        <Styled.AuthorName>Автор: {topic.author}</Styled.AuthorName>
+        <Styled.TopicCreationDate>
+          {`, ${transformDateToRussianDDMMString(topic.creationDate)}`}
+        </Styled.TopicCreationDate>
+      </Styled.AboutAuthorTextWrapper>
+    </Styled.TitlePartContainer>
   );
 
-  const renderCountersColumn = () => {
+  const renderCountersPart = () => {
     const formattedRepliesStr = formatNumeralAndWordTuple(topic.repliesCount, [
       'ответ',
       'ответа',
@@ -38,34 +30,46 @@ export const TopicsListItem = ({ topic }: { topic: ITopic; forumId: string }) =>
     ]);
 
     return (
-      <Styled.CountersSectionColumn>
+      <Styled.CountersColumnContainer>
         <Styled.MainText>{formattedRepliesStr}</Styled.MainText>
         <Styled.SecondaryText>{formattedViewsStr}</Styled.SecondaryText>
-      </Styled.CountersSectionColumn>
+      </Styled.CountersColumnContainer>
     );
   };
 
-  const renderLastMessageSection = () => (
-    <Styled.LastMessageSectionContainer>
+  const renderLastMessageInfoPart = () => (
+    <Styled.LastMessageInfoContainer>
       <Styled.Avatar />
-      <Styled.ColumnContainer>
-        <Styled.MainText style={{ wordBreak: 'break-word' }}>
+      <Styled.LastMessageInfoTextWrapper>
+        <Styled.LastMessageAuthorName as="div">
           {topic.lastMessageInfo.author}
-        </Styled.MainText>
+        </Styled.LastMessageAuthorName>
         <Styled.SecondaryText>
           {transformDateToRussianDDMMString(topic.lastMessageInfo.date)}
         </Styled.SecondaryText>
-      </Styled.ColumnContainer>
-    </Styled.LastMessageSectionContainer>
+      </Styled.LastMessageInfoTextWrapper>
+    </Styled.LastMessageInfoContainer>
   );
 
   return (
-    <Styled.ListItemContainer>
-      <Styled.HeadingSectionContainer>
-        {renderHeadingColumn()}
-        {renderCountersColumn()}
-      </Styled.HeadingSectionContainer>
-      {topic.lastMessageInfo && renderLastMessageSection()}
-    </Styled.ListItemContainer>
+    <Styled.ItemContainer>
+      <Styled.ContentAndLockContainer>
+        <Styled.LockIconContainer>{topic.isClosed && <Styled.SvgLock />}</Styled.LockIconContainer>
+        <Styled.ItemContentContainer>
+          {renderTitleColumnPart()}
+          {renderCountersPart()}
+          {topic.lastMessageInfo && renderLastMessageInfoPart()}
+        </Styled.ItemContentContainer>
+      </Styled.ContentAndLockContainer>
+      {topic.tags && (
+        <Styled.TagsContainer>
+          {topic.tags.map((tag, index) => (
+            <Styled.Tag key={`${tag}-${index}`} href="#">
+              {tag}
+            </Styled.Tag>
+          ))}
+        </Styled.TagsContainer>
+      )}
+    </Styled.ItemContainer>
   );
 };

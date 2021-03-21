@@ -6,7 +6,7 @@ const forums: IRawForumInfo[] = [
     id: 'forum-3',
     topics: [
       {
-        name: 'Example Topic 31',
+        name: 'Example Topic Topic Topic Topic Topic Topic Topic 31',
         id: 'ex-topic-31',
         author: 'exampleUser12345678910sadasdasda',
         creationDate: new Date().toDateString(),
@@ -20,7 +20,7 @@ const forums: IRawForumInfo[] = [
         tags: ['tag-1', 'tag-2']
       },
       {
-        name: 'Example Topic 32',
+        name: 'Example Topic Topic Topic Topic Topic Topic Topic 32',
         id: 'ex-topic-32',
         author: 'exampleUser12345678910sadasdasda',
         creationDate: new Date().toDateString(),
