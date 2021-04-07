@@ -1,13 +1,17 @@
 import styled from '@emotion/styled';
 
 export const PrimaryButton = styled.button`
+  --text-color: ${({ theme }) => theme.colors.onPrimary};
+  --background-color: ${({ theme }) => theme.colors.primary};
+  --border-radius: 4px;
+
   position: relative;
   padding: 10px 20px;
   border: none;
   outline: none;
-  border-radius: 4px;
-  background: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.onPrimary};
+  border-radius: var(--border-radius);
+  background: var(--background-color);
+  color: var(--text-color);
   font-size: 13px;
   font-weight: 500;
   text-transform: capitalize;
@@ -21,12 +25,20 @@ export const PrimaryButton = styled.button`
     left: 0;
     right: 0;
     opacity: 0;
-    background: ${({ theme }) => theme.colors.onPrimary};
+    border-radius: var(--border-radius);
+    background: var(--text-color);
+    transition: opacity 0.2s ease;
   }
 
   &:hover {
     &:before {
       opacity: 0.15;
+    }
+  }
+
+  &:active {
+    &:before {
+      opacity: 0.3;
     }
   }
 `;

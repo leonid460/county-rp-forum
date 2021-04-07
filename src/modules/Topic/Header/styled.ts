@@ -7,7 +7,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: ${Gaps.Gap20};
+  margin: ${Gaps.Gap20} 0;
   border-radius: 4px;
   overflow: hidden;
   background: ${({ theme }) => theme.colors.surface};

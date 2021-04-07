@@ -5,6 +5,7 @@ import { ServicesContainer } from '@/api';
 import { IRawTopicInfo } from '@/api/topic/types';
 import { TopicPageAdaptors } from '@/api/topic/TopicPageAdaptors';
 import { Header } from '@/modules/Topic/Header';
+import { PageSelector } from '@/modules/Topic/PageSelector';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { topicId } = context.params;
@@ -24,6 +25,7 @@ const Topic = ({ name, authorInfo, tags }: IRawTopicInfo) => {
         <title>{name}</title>
       </Head>
       <Header title={name} authorInfo={adaptedAuthorInfo} tags={tags || []} />
+      <PageSelector />
     </>
   );
 };

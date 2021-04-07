@@ -48,6 +48,11 @@ export const GlobalStyles = ({ theme }: { theme: Theme }) => (
           transform: scaleY(1);
         }
       }
+
+      .tooltip-container {
+        border-radius: 4px;
+        border: 1px solid ${theme.colors.border};
+      }
     `}
   />
 );
