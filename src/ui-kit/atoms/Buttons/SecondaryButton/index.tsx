@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 
 export const SecondaryButton = styled.button`
   --text-color: ${({ theme }) => theme.colors.primary};
+  --background-color: ${({ theme }) => theme.colors.surface};
+  --disabled-background-color: ${({ theme }) => theme.colors.onSurface};
 
   position: relative;
   padding: 10px 20px;
@@ -11,6 +13,7 @@ export const SecondaryButton = styled.button`
   overflow: hidden;
   background: none;
   color: var(--text-color);
+  background: var(--background-color);
   font-size: 13px;
   font-weight: 500;
   text-transform: capitalize;
@@ -37,6 +40,15 @@ export const SecondaryButton = styled.button`
   &:active {
     &:before {
       opacity: 0.3;
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+
+    &:before {
+      opacity: 0.3;
+      background: var(--disabled-background-color);
     }
   }
 `;

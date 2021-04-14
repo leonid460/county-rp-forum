@@ -47,10 +47,10 @@ export const PageNumberButton = styled.button<{ isActive?: boolean }>`
   border-radius: 2px;
   overflow: hidden;
   outline: none;
-  cursor: pointer;
   background: var(--background-color);
   color: var(--text-color);
   ${({ theme }) => theme.typography.button};
+  cursor: ${({ isActive }) => (isActive ? 'default' : 'pointer')};
 
   &:before {
     position: absolute;
@@ -82,6 +82,7 @@ export const PageNumberButton = styled.button<{ isActive?: boolean }>`
 `;
 
 export const TripleDots = styled(SvgTripleDots)`
+  width: 23px;
   margin-right: ${Gaps.Gap8};
 
   & > circle {

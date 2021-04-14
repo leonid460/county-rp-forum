@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 export const PrimaryButton = styled.button`
   --text-color: ${({ theme }) => theme.colors.onPrimary};
   --background-color: ${({ theme }) => theme.colors.primary};
+  --disabled-background-color: ${({ theme }) => theme.colors.onPrimary};
   --border-radius: 4px;
 
   position: relative;
@@ -39,6 +40,15 @@ export const PrimaryButton = styled.button`
   &:active {
     &:before {
       opacity: 0.3;
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+
+    &:before {
+      opacity: 0.3;
+      background: var(--disabled-background-color);
     }
   }
 `;

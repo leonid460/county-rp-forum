@@ -6,8 +6,8 @@ import { OpenPanelButton } from './OpenPanelButton/';
 
 const AuthButtons = () => (
   <Styled.AuthButtonsContainer>
-    <Styled.SecondaryButton>Войти</Styled.SecondaryButton>
-    <PrimaryButton>Регистрация</PrimaryButton>
+    <Styled.SecondaryButton disabled>Войти</Styled.SecondaryButton>
+    <PrimaryButton disabled>Регистрация</PrimaryButton>
   </Styled.AuthButtonsContainer>
 );
 

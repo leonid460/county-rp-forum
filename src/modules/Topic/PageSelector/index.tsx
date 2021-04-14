@@ -116,21 +116,27 @@ export const PageSelector = () => {
 
   const renderTabletAndDesktopView = () => (
     <Styled.SelectorContainer className={boxShadow}>
-      {shouldShowBackButton && <Styled.BackButton onClick={goPrevPage}>Назад</Styled.BackButton>}
+      <Styled.BackButton disabled={!shouldShowBackButton} onClick={goPrevPage}>
+        Назад
+      </Styled.BackButton>
       <PageNumbersList
         amount={amount}
         currentIndex={currentPage}
         setCurrentIndex={setCurrentPage}
       />
-      {shouldShowForwardButton && (
-        <Styled.ForwardButton onClick={goNextPage}>Вперёд</Styled.ForwardButton>
-      )}
+      <Styled.ForwardButton disabled={!shouldShowForwardButton} onClick={goNextPage}>
+        Вперёд
+      </Styled.ForwardButton>
       <Styled.GoToPageButton ref={setTriggerRef} active={isTooltipVisible}>
         Перейти на страницу
       </Styled.GoToPageButton>
       {renderGoToPageTooltip()}
     </Styled.SelectorContainer>
   );
+
+  if (amount < 2) {
+    return null;
+  }
 
   return isMobile ? renderMobileView() : renderTabletAndDesktopView();
 };

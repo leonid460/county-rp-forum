@@ -14,6 +14,7 @@ export const Container = styled.button`
   outline: none;
   ${({ theme }) => theme.typography.button};
   color: ${({ theme }) => theme.colors.primary};
+  background: ${({ theme }) => theme.colors.surface};
   background: none;
   cursor: pointer;
 
@@ -38,6 +39,15 @@ export const Container = styled.button`
   &:active {
     &:after {
       opacity: 0.3;
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+
+    &:after {
+      opacity: 0.3;
+      background: ${({ theme }) => theme.colors.onSurface};
     }
   }
 `;
