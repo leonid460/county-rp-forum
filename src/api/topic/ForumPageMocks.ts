@@ -8,7 +8,9 @@ const topics: IRawTopicInfo[] = [
       name: 'exampleUser12345678910sadasdasda',
       creationDate: new Date().toDateString()
     },
-    tags: ['tag-1', 'tag-2']
+    tags: ['tag-1', 'tag-2'],
+    page: 1,
+    pagesAmount: 10
   },
   {
     id: 'ex-topic-32',
@@ -17,7 +19,9 @@ const topics: IRawTopicInfo[] = [
       name: 'exampleUser12345678910sadasdasda',
       creationDate: new Date().toDateString()
     },
-    tags: ['tag-1']
+    tags: ['tag-1'],
+    page: 1,
+    pagesAmount: 1
   },
   {
     id: 'ex-topic-41',
@@ -26,7 +30,9 @@ const topics: IRawTopicInfo[] = [
       name: 'exampleUser12345678910sadasdasda',
       creationDate: new Date().toDateString()
     },
-    tags: []
+    tags: [],
+    page: 1,
+    pagesAmount: 4
   },
   {
     id: 'ex-topic-42',
@@ -35,11 +41,21 @@ const topics: IRawTopicInfo[] = [
       name: 'exampleUser12345678910sadasdasda',
       creationDate: new Date().toDateString()
     },
-    tags: []
+    tags: [],
+    page: 1,
+    pagesAmount: 2
   }
 ];
 
 export const TopicPageMocks: ITopicPageService = {
-  getTopicInfo: (topicId) =>
-    new Promise((resolve) => resolve(topics.find((topic) => topic.id === topicId)))
+  getTopicInfo: (topicId, page) => {
+    const topic = topics.find((topic) => topic.id === topicId);
+
+    return new Promise((resolve) =>
+      resolve({
+        ...topic,
+        page
+      })
+    );
+  }
 };

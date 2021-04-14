@@ -10,14 +10,19 @@ import { TopicPost } from '@/modules/Topic/TopicPost';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { topicId } = context.params;
-  const topicInfo = await ServicesContainer.TopicPageService.getTopicInfo(topicId as string);
+  const { page = 1 } = context.query;
+
+  const topicInfo = await ServicesContainer.TopicPageService.getTopicInfo(
+    String(topicId),
+    Number(page)
+  );
 
   return {
     props: topicInfo
   };
 };
 
-const Topic = ({ name, authorInfo, tags }: IRawTopicInfo) => {
+const Topic = ({ name, authorInfo, tags, page, pagesAmount }: IRawTopicInfo) => {
   const adaptedAuthorInfo = TopicPageAdaptors.authorInfo(authorInfo);
 
   const longUsername = 'exampleUser12345678910sadasdasda';
@@ -42,11 +47,12 @@ const Topic = ({ name, authorInfo, tags }: IRawTopicInfo) => {
         <title>{name}</title>
       </Head>
       <Header title={name} authorInfo={adaptedAuthorInfo} tags={tags || []} />
-      <PageSelector />
+      <PageSelector page={page} pagesAmount={pagesAmount} />
       <TopicPost {...props} />
       <TopicPost {...props} />
       <TopicPost {...props} />
       <TopicPost {...props} />
+      <PageSelector page={page} pagesAmount={pagesAmount} />
     </>
   );
 };

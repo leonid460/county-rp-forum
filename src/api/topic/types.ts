@@ -3,6 +3,8 @@ export interface IRawTopicInfo {
   name: string;
   authorInfo: IRawAuthorInfo;
   tags?: string[];
+  page: number;
+  pagesAmount: number;
 }
 
 export interface IRawAuthorInfo {
@@ -12,5 +14,5 @@ export interface IRawAuthorInfo {
 }
 
 export interface ITopicPageService {
-  getTopicInfo: (topicId: string) => Promise<IRawTopicInfo>;
+  getTopicInfo: (topicId: string, page: number) => Promise<IRawTopicInfo>;
 }

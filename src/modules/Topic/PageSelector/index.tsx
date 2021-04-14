@@ -4,6 +4,8 @@ import { boxShadow } from '@/ui-kit/styles/boxShadow';
 import { useDeviceType } from '@/utils/useDeviceType';
 import { usePopperTooltip } from 'react-popper-tooltip';
 import { GoToPageWindow } from './GoToPageWindow';
+import { IPageSelectorProps } from './types';
+import { useRouter } from 'next/router';
 
 function generateArray(size: number, creator: (index: number) => number) {
   return new Array(size).fill(0).map((_, key) => creator(key));
@@ -58,13 +60,13 @@ const PageNumbersList = ({
   return <Styled.PageNumbersListContainer>{renderPageButtons()}</Styled.PageNumbersListContainer>;
 };
 
-export const PageSelector = () => {
+export const PageSelector = ({ page, pagesAmount }: IPageSelectorProps) => {
+  const router = useRouter();
   const { isMobile } = useDeviceType();
-  const amount = 9;
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(page);
   const [isGoToPageWindowVisible, setIsGoToPageWindowVisible] = useState(false);
-  const shouldShowBackButton = currentPage !== 1;
-  const shouldShowForwardButton = currentPage !== amount;
+  const shouldShowBackButton = page !== 1;
+  const shouldShowForwardButton = page !== pagesAmount;
 
   const {
     getArrowProps,
@@ -79,13 +81,23 @@ export const PageSelector = () => {
     onVisibleChange: setIsGoToPageWindowVisible
   });
 
-  const goNextPage = () => setCurrentPage((page) => page + 1);
+  const setPage = (value: number) => {
+    const pathname = router.asPath;
+    const pathNameWithoutPage = pathname.replace(/\?page=\d*/, '');
 
-  const goPrevPage = () => setCurrentPage((page) => page - 1);
+    return router.push(`${pathNameWithoutPage}?page=${value}`, '', {
+      scroll: false
+    });
+  };
+
+  const goNextPage = () => setPage(page + 1);
+
+  const goPrevPage = () => setPage(page - 1);
 
   const handleGoToPageSubmit = (value: number) => {
-    setCurrentPage(value);
     setIsGoToPageWindowVisible(false);
+
+    return setPage(value);
   };
 
   const renderGoToPageTooltip = () => {
@@ -96,7 +108,7 @@ export const PageSelector = () => {
     return (
       <div ref={setTooltipRef} {...getTooltipProps({ className: 'tooltip-container' })}>
         <div {...getArrowProps({ className: 'tooltip-arrow' })} />
-        <GoToPageWindow pagesAmount={amount} onSubmit={handleGoToPageSubmit} />
+        <GoToPageWindow pagesAmount={pagesAmount} onSubmit={handleGoToPageSubmit} />
       </div>
     );
   };
@@ -105,7 +117,7 @@ export const PageSelector = () => {
     <Styled.MobileSelectorContainer className={boxShadow}>
       {shouldShowBackButton && <Styled.BackButton onClick={goPrevPage}>Назад</Styled.BackButton>}
       <Styled.MobileGoToPageButton ref={setTriggerRef} active={isTooltipVisible}>
-        {currentPage}/{amount}
+        {page}/{pagesAmount}
       </Styled.MobileGoToPageButton>
       {renderGoToPageTooltip()}
       {shouldShowForwardButton && (
@@ -119,11 +131,7 @@ export const PageSelector = () => {
       <Styled.BackButton disabled={!shouldShowBackButton} onClick={goPrevPage}>
         Назад
       </Styled.BackButton>
-      <PageNumbersList
-        amount={amount}
-        currentIndex={currentPage}
-        setCurrentIndex={setCurrentPage}
-      />
+      <PageNumbersList amount={pagesAmount} currentIndex={page} setCurrentIndex={setPage} />
       <Styled.ForwardButton disabled={!shouldShowForwardButton} onClick={goNextPage}>
         Вперёд
       </Styled.ForwardButton>
@@ -134,7 +142,7 @@ export const PageSelector = () => {
     </Styled.SelectorContainer>
   );
 
-  if (amount < 2) {
+  if (pagesAmount < 2) {
     return null;
   }
 
