@@ -15,7 +15,7 @@ export const Breadcrumbs = () => {
       const newEntries = await collectRoutes(pathname, locationsMap);
       seEntries(newEntries as IBreadCrumbEntry[]);
     })();
-  }, []);
+  }, [pathname]);
 
   return <BreadcrumbsList entries={entries} />;
 };

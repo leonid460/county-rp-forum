@@ -5,7 +5,8 @@ export async function collectRoutes(
   path: string,
   locationsMap: Map<string, ILocationsMapItemValue>
 ) {
-  const { locationsEntries, nameResolvers } = getLocationEntries(path, locationsMap);
+  const pathWithoutParams = removeUrlParameters(path);
+  const { locationsEntries, nameResolvers } = getLocationEntries(pathWithoutParams, locationsMap);
   const resolvedNames: string[] = await Promise.all(nameResolvers.map((resolver) => resolver()));
   const reverseNamesList = resolvedNames.reverse();
 
@@ -82,4 +83,8 @@ function removeSlashesFromHeadAndTail(path: string) {
   }
 
   return changedPath;
+}
+
+function removeUrlParameters(path: string) {
+  return path.replace(/[?&#].*/, '');
 }
