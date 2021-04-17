@@ -13,7 +13,7 @@ async function forumNameResolver(id: string) {
 }
 
 async function topicNameResolver(id: string) {
-  const topicInfo = await ServicesContainer.TopicPageService.getTopicInfo(id);
+  const topicInfo = await ServicesContainer.TopicPageService.getTopicInfo(id, 1);
 
   if (topicInfo) {
     return topicInfo.name;

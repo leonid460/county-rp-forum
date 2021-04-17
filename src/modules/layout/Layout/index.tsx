@@ -10,10 +10,8 @@ export const Layout: React.FC = ({ children }) => {
     <PageContainer>
       <TopPanel />
       <Content>
-        <Box>
-          <Breadcrumbs />
-          {children}
-        </Box>
+        <Breadcrumbs />
+        <Box>{children}</Box>
       </Content>
     </PageContainer>
   );
