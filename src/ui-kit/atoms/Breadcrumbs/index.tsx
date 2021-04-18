@@ -13,12 +13,20 @@ export const Breadcrumbs = () => {
   const router = useRouter();
   const pathname = router.asPath;
   const [entries, seEntries] = useState<IBreadCrumbEntry[]>([]);
-
   useEffect(() => {
+    let isCollectProcessCanceled = false;
+
     (async function () {
       const newEntries = await collectRoutes(pathname, locationsMap);
-      seEntries(newEntries as IBreadCrumbEntry[]);
+
+      if (!isCollectProcessCanceled) {
+        seEntries(newEntries as IBreadCrumbEntry[]);
+      }
     })();
+
+    return () => {
+      isCollectProcessCanceled = true;
+    };
   }, [pathname]);
 
   if (isMobile) {
