@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { ContentContainer } from '@/modules/Forum/ContentContainer';
+import { PageContentContainer } from '@/ui-kit/atoms/PageContentContainer';
 import { Header } from '@/modules/Forum/Header';
 import { IRawForumInfo } from '@/api/forum/types';
 import { GetServerSideProps } from 'next';
@@ -27,10 +27,10 @@ const Forum = ({ name, id, topics }: IForumPageProps) => {
       <Head>
         <title>{name}</title>
       </Head>
-      <ContentContainer>
+      <PageContentContainer>
         <Header>{name}</Header>
         <TopicList forumId={id} topics={adaptedTopics} />
-      </ContentContainer>
+      </PageContentContainer>
     </>
   );
 };
