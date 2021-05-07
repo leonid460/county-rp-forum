@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { InputWithLabelAndHints } from '@/ui-kit/molecules/InputWithLabelAndHints';
 import * as Styled from './styled';
+import { useRouter } from 'next/router';
+import { rulesOfForum } from '@/routes';
 
 export const Form = () => {
   const [username, setUsername] = useState('');
@@ -8,8 +10,16 @@ export const Form = () => {
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
 
+  const router = useRouter();
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    return router.push(rulesOfForum);
+  };
+
   return (
-    <>
+    <form onSubmit={handleSubmit}>
       <Styled.Container>
         <InputWithLabelAndHints
           label="имя пользователя"
@@ -39,6 +49,6 @@ export const Form = () => {
         />
       </Styled.Container>
       <Styled.ContinueButton>Продолжить</Styled.ContinueButton>
-    </>
+    </form>
   );
 };

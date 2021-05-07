@@ -22,8 +22,9 @@ async function topicNameResolver(id: string) {
 
 export const locations: ILocation[] = [
   { route: routes.mainSite, name: 'Главная' },
-  { route: routes.registration, name: 'Регистрация' },
   { route: routes.root, name: 'Форумы' },
+  { route: routes.registration, name: 'Регистрация' },
+  { route: routes.rulesOfForum, name: 'Правила форума' },
   { route: `${routes.root}forum/:id`, dynamic: true, nameResolver: forumNameResolver },
   { route: `${routes.root}forum/:id/topic/:id`, dynamic: true, nameResolver: topicNameResolver }
 ];
