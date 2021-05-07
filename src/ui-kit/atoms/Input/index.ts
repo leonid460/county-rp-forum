@@ -5,6 +5,7 @@ export const Input = styled.input`
   padding: ${Gaps.Gap12};
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: 4px;
+  outline: none;
   background: ${({ theme }) => theme.colors.surface};
   color: ${({ theme }) => theme.colors.onSurface};
 
@@ -16,7 +17,7 @@ export const Input = styled.input`
     border-color: ${({ theme }) => theme.colors.secondary};
   }
 
-  &:active {
+  &:focus {
     border-color: ${({ theme }) => theme.colors.primary};
   }
 `;
