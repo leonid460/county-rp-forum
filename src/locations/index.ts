@@ -25,6 +25,7 @@ export const locations: ILocation[] = [
   { route: routes.root, name: 'Форумы' },
   { route: routes.registration, name: 'Регистрация' },
   { route: routes.rulesOfForum, name: 'Правила форума' },
+  { route: routes.testOfRules, name: 'Тест на знание правил' },
   { route: `${routes.root}forum/:id`, dynamic: true, nameResolver: forumNameResolver },
   { route: `${routes.root}forum/:id/topic/:id`, dynamic: true, nameResolver: topicNameResolver }
 ];

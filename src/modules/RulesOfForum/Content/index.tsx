@@ -1,7 +1,13 @@
 import React from 'react';
 import * as Styled from './styled';
+import { useRouter } from 'next/router';
+import { testOfRules } from '@/routes';
 
 export const Content = () => {
+  const router = useRouter();
+
+  const handleContinue = () => router.push(testOfRules);
+
   return (
     <>
       <Styled.Header>Правила форума</Styled.Header>
@@ -53,7 +59,7 @@ export const Content = () => {
         </Styled.Text>
       </Styled.ContainerWithPadding>
       <Styled.ContainerWithPadding>
-        <Styled.ContinueButton>Продолжить</Styled.ContinueButton>
+        <Styled.ContinueButton onClick={handleContinue}>Продолжить</Styled.ContinueButton>
       </Styled.ContainerWithPadding>
     </>
   );
