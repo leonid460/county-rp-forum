@@ -6,7 +6,7 @@ import { useMemo } from 'react';
 let store: EnhancedStore<IStoreState>;
 
 const initialState: IStoreState = {
-  theme: 'light'
+  theme: null
 };
 
 function createInitStore(preloadedState = initialState) {

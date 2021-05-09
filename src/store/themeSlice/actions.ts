@@ -1,3 +1,3 @@
 import { createThemeSlice } from './index';
 
-export const { toggle } = createThemeSlice('light').actions;
+export const { toggle, setTheme } = createThemeSlice('light').actions;
