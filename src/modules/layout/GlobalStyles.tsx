@@ -49,6 +49,24 @@ export const GlobalStyles = ({ theme }: { theme: Theme }) => (
         }
       }
 
+      @keyframes appear {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes disappear {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
       .tooltip-container {
         border-radius: 4px;
         border: 1px solid ${theme.colors.border};
