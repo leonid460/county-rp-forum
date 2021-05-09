@@ -21,8 +21,7 @@ async function topicNameResolver(id: string) {
 }
 
 export const locations: ILocation[] = [
-  { route: routes.mainSite, name: 'Главная' },
-  { route: routes.root, name: 'Форумы' },
+  { route: routes.root, name: 'Главная' },
   { route: routes.registration, name: 'Регистрация' },
   { route: routes.rulesOfForum, name: 'Правила форума' },
   { route: routes.testOfRules, name: 'Тест на знание правил' },
@@ -38,4 +37,4 @@ export const locationsMap = new Map<string, ILocationsMapItemValue>(
   })
 );
 
-export const mainLocations = [locations[0], locations[1]];
+export const mainLocations = [locations[0]];
