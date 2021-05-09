@@ -5,8 +5,7 @@ import { useDeviceType } from '@/utils/useDeviceType';
 import { OpenPanelButton } from './OpenPanelButton/';
 import { useRouter } from 'next/router';
 import { registration } from '@/routes';
-import { Modal } from '@/ui-kit/atoms/Modal';
-import { LoginModalContent } from './LoginModalContent';
+import { LoginModal } from './LoginModal';
 
 const AuthButtons = () => {
   const router = useRouter();
@@ -20,9 +19,7 @@ const AuthButtons = () => {
         <Styled.SecondaryButton onClick={openLoginModal}>Войти</Styled.SecondaryButton>
         <PrimaryButton onClick={() => router.push(registration)}>Регистрация</PrimaryButton>
       </Styled.AuthButtonsContainer>
-      <Modal isVisible={isLoginModalOpen} setIsVisible={setIsLoginModalOpen}>
-        <LoginModalContent />
-      </Modal>
+      <LoginModal isVisible={isLoginModalOpen} setIsVisible={setIsLoginModalOpen} />
     </>
   );
 };
