@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Portal } from '@/ui-kit/atoms/Portal';
 import { GoBackButton } from './GoBackButton';
 import { appear } from '@/ui-kit/styles/appear';
@@ -7,22 +7,27 @@ import { ModalBackground, ModalHead, ModalContentWrapper } from './styled';
 import { IModalProps } from './types';
 
 export const Modal: React.FC<IModalProps> = ({ isVisible, setIsVisible, children }) => {
+  const [isVisibleInner, setIsVisibleInner] = useState(false);
   const [disappearAnimationClassName, setDisappearAnimationClassName] = useState(appear);
 
-  const closeModal = () => {
-    setDisappearAnimationClassName(disappear);
-
-    const timerId = setTimeout(() => {
-      setIsVisible(false);
+  useEffect(() => {
+    if (isVisible) {
       setDisappearAnimationClassName(appear);
-    }, 300);
+      setIsVisibleInner(true);
+    } else {
+      setDisappearAnimationClassName(disappear);
 
-    return () => {
-      clearTimeout(timerId);
-    };
-  };
+      const timerId = setTimeout(() => {
+        setIsVisibleInner(false);
+      }, 300);
 
-  if (!isVisible) {
+      return () => {
+        clearTimeout(timerId);
+      };
+    }
+  }, [isVisible]);
+
+  if (!isVisibleInner) {
     return null;
   }
 
@@ -30,7 +35,7 @@ export const Modal: React.FC<IModalProps> = ({ isVisible, setIsVisible, children
     <Portal>
       <ModalBackground className={disappearAnimationClassName}>
         <ModalHead>
-          <GoBackButton onClick={closeModal} />
+          <GoBackButton onClick={() => setIsVisible(false)} />
         </ModalHead>
         <ModalContentWrapper>{children}</ModalContentWrapper>
       </ModalBackground>
