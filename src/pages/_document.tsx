@@ -1,6 +1,7 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { extractCritical } from '@emotion/server';
+import { PORTAL_CONTAINER_ID } from '@/ui-kit/atoms/Portal';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -27,6 +28,7 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <div id={PORTAL_CONTAINER_ID} />
         </body>
       </Html>
     );
